@@ -1,1 +1,16 @@
 /* CSS declarations go here */
+
+
+#login-buttons {
+    margin: 18px;
+    font-size: 14px;
+    margin-right: 300px;
+}
+
+
+.btn-block {
+   
+    margin-bottom: 50px;
+    margin-top: 50px;
+
+}

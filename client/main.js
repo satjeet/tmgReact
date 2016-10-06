@@ -1,22 +1,27 @@
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Router, Route , IndexRoute, browserHistory} from 'react-router';
 
-import './main.html';
+import App from './components/app';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
+import seleccionRol from './components/seleccionRol';
+
+
+
+const routes=(
+    <Router history={browserHistory}>
+        <Route path="/" component={App}>
+        	<IndexRoute component={seleccionRol}/>
+
+        </Route>
+    </Router>
+);
+Meteor.startup(() => {
+  // code to run on server at startup
+    //            <Route path="bins/:binId" component={BinsMain}/>
+    ReactDOM.render(routes, document.querySelector('.render-target'));
 });
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
 
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
-});
+
+// // <IndexRoute component={BinsList}/>
