@@ -5,7 +5,8 @@ import Header from './header'
 import seleccionRol from './seleccionRol';
 
 
-
+//{ <seleccionRol/>   }
+//props.children tiene a seleccionRol
 //export default(props) =>{
 export default(props) =>{
 
@@ -14,7 +15,10 @@ export default(props) =>{
 		<div>
 		    <Header/>
             {props.children}
-            { <seleccionRol/>   }
+            
+
+            
+            
 		</div>
 
 		);

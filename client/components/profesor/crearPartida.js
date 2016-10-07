@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link, browserHistory} from 'react-router';
 
 
-import {Partidas} from '../../../imports/collections/Partidas';
+import { Partidas } from '../../../imports/collections/partidas';
 
 class crearPartida extends Component{
 /*
@@ -16,10 +16,14 @@ class crearPartida extends Component{
 	}
 */
 	
-	onCrearPartidaClick(){
+	onCrearPartidaClick(event){
+		event.preventDefault();
 
-	        const nombrePartida=this.refs.nPartida.value;
-	        Meteor.call('partidas.crearPartida',nombrePartida);
+	        const nombrePartida=this.refs.nPartidacrear.value;
+	       // Meteor.call('partidas.crearPartida',nombrePartida);
+	       Meteor.call('partidas.crearPartida',nombrePartida,(error,partidaId)=>{
+			browserHistory.push("/profesor/waitingGrupos/"+`${partidaId}`);
+			});
 	}
 //<a href="#" onClick={this.onBindClick.bind(this)}>Create Bin</a>
 
@@ -37,7 +41,7 @@ class crearPartida extends Component{
 
 
 							     <div className="input-group">
-			                        <input ref="nPartida" className="form-control" placeholder='Ingrese el nombre de su partida'/>
+			                        <input ref="nPartidacrear" className="form-control" placeholder='Ingrese el nombre de su partida'/>
 			                        <div className="input-group-btn">
 			                            <button
 			                                onClick={this.onCrearPartidaClick.bind(this)}
