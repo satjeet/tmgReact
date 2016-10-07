@@ -2,16 +2,23 @@ import React, {Component} from 'react';
 import {Link, browserHistory} from 'react-router';
 
 class seleccionRol extends Component{
-/*
-	onBindClick(event){
+
+	onProfesorClick(event){
 
 		event.preventDefault();
-		Meteor.call('bins.insert',(error,binId)=>{
+		browserHistory.push(`/profesor/`);
+		
+		/*Meteor.call('bins.insert',(error,binId)=>{
 			browserHistory.push(`/bins/${binId}`);
 		});
-
+		*/
 	}
-*/
+
+	onAlumnoClick(event){
+		event.preventDefault();
+		browserHistory.push(`/alumno/`);
+	}
+
 //<a href="#" onClick={this.onBindClick.bind(this)}>Create Bin</a>
 
 	render(){
@@ -25,8 +32,9 @@ class seleccionRol extends Component{
 					<div className="jumbotron jumbotron-fluid">
 						  <div className="container">
 						    <h1 className="display-3">Escoje tu Rol</h1>
-						    <button type="button" className="btn btn-primary btn-lg btn-block">Profesor</button>
-						    <button type="button" className="btn btn-primary btn-lg btn-block">Alumnos</button>
+
+						    <button type="button" onClick={this.onProfesorClick.bind(this)} className="btn btn-primary btn-lg btn-block">Profesor</button>
+						    <button type="button" onClick={this.onAlumnoClick.bind(this)} className="btn btn-primary btn-lg btn-block">Alumnos</button>
 
 
 						  </div>

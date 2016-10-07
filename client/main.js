@@ -5,6 +5,10 @@ import {Router, Route , IndexRoute, browserHistory} from 'react-router';
 import App from './components/app';
 
 import seleccionRol from './components/seleccionRol';
+import crearPartida from './components/profesor/crearPartida';
+import unirsePartida from './components/alumno/unirsePartida';
+
+
 
 
 
@@ -12,6 +16,10 @@ const routes=(
     <Router history={browserHistory}>
         <Route path="/" component={App}>
         	<IndexRoute component={seleccionRol}/>
+
+        	<Route path="profesor/" component={crearPartida}/>
+
+        	<Route path="alumno/" component={unirsePartida}/>
 
         </Route>
     </Router>
